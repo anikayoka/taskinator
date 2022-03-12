@@ -41,7 +41,7 @@ var taskFormHandler = function (event) {
   }
 };
 
-var createTaskEl = function(taskDataObj) {
+var createTaskEl = function (taskDataObj) {
   var listItemEl = document.createElement("li");
   listItemEl.className = "task-item";
   listItemEl.setAttribute("data-task-id", taskIdCounter);
@@ -247,18 +247,16 @@ var deleteTask = function (taskId) {
   saveTasks();
 };
 
-var saveTasks = function() {
+var saveTasks = function () {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
-var loadTasks = function() {
+var loadTasks = function () {
   var savedTasks = localStorage.getItem("tasks");
   // if there are no tasks, set tasks to an empty array and return out of the function
   if (!savedTasks) {
     return false;
   }
-  console.log("Saved tasks found!");
-  // else, load up saved tasks
 
   // parse into array of objects
   savedTasks = JSON.parse(savedTasks);
@@ -268,6 +266,7 @@ var loadTasks = function() {
     // pass each task object into the `createTaskEl()` function
     createTaskEl(savedTasks[i]);
   }
+
 };
 
 // Create a new task
